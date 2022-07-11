@@ -1,1 +1,2 @@
 # diverseaty_app
+The DiversEaty app is for people who loves to cook and could see other recipes throught the world. The feauture of this app could make users share their recipes with images and the instruction on how to do the dish, it could also add new recipes, edit the recipe, and delete the recipe. Your recipe could have some likes from your friends. It is nice to share your culture's food because most of us could connect with the love of food.
