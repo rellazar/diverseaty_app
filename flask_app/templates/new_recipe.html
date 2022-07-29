@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Sighting</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css') }}">
+</head>
+<body>
+    <nav class="d-flex justify-content-between align-items-center col-12">
+        <h1 class="text-center align-items-center">Diverseaty</h1>
+        <nav class="d-flex justify-content-end border-0 align-items-center col-12">
+            <a href="/dashboard" class="btn btn-success">Home</a>
+            <a href="/new/recipe" class="btn btn-success">My Recipe</a>
+            <a href="/new/recipe" class="btn btn-success">Add Recipe</a>
+            <a href="/logout" class="btn btn-success">Logout</a>
+    </nav>
+    <form action="/create/recipe" method="post" class="col-7 p-4 my-4 bg-light mx-auto">
+        {% with messages = get_flashed_messages(category_filter=['recipe']) %}
+            {% if messages %}
+            <div class="alert alert-danger" role="alert">
+                    {% for message in messages %}
+                    <p>{{message}}</p>
+                    {% endfor %}
+            </div>
+            {% endif %}
+        {% endwith %}
+        <div class="d-flex justify-content-between col-15">
+            <div class="col-8">
+                <h1 class="text-center text-success">Add Recipe</h1>
+                <input type="hidden" name="user_id" value= "{{user.id}}">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="ingredients">Ingredients:</label>
+                    <input type="text" name="ingredients" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="descriptions">Descriptions:</label>
+                    <input type="text" name="descriptions" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="country">Country:</label>
+                    <input type="text" name="country" class="form-control">
+                </div>
+                <br>
+                <input type="submit" value="create" class="btn btn-success">
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
